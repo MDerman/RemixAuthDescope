@@ -60,7 +60,6 @@ export class OpenAIClient {
     }
   }
 
-
   /**
    * Generate image from OpenAI DALL-E
    */
