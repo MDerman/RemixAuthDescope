@@ -44,16 +44,21 @@ module.exports = {
           { name: "NavLink", linkAttribute: "to" },
         ],
         "import/resolver": {
-          typescript: {},
+          typescript: {
+            alwaysTryTypes: true,
+          },
         },
       },
     },
 
-    // Typescript
+    // // Typescript
     {
       files: ["**/*.{ts,tsx}"],
       plugins: ["@typescript-eslint", "import"],
       parser: "@typescript-eslint/parser",
+      // parserOptions: {
+      //   project: "./tsconfig.json",
+      // },
       settings: {
         "import/internal-regex": "^~/",
         "import/resolver": {
