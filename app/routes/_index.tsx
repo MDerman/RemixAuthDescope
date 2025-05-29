@@ -1,4 +1,4 @@
-import { AppSidebar } from "~/components/nav/app-sidebar";
+import { AppSidebar } from "~/components/nav/app-sidebar.client";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ActionFunctionArgs, defer, json } from "@remix-run/node";
 import { OpenAIClient } from "~/lib/generation/open-ai-client";
@@ -9,7 +9,7 @@ import {
 } from "~/components/home-page/previous-example-chat-session";
 import ChatCommandMenu from "~/components/home-page/chat-command-menu";
 import { useLoaderData, useActionData } from "@remix-run/react";
-import { ClientOnly } from "~/components/client-only";
+import { isClient } from "~/lib/utils";
 
 type ActionData =
   | { error: string; success?: never; imageUrl?: never; prompt?: never }
@@ -56,9 +56,7 @@ export default function Page() {
 
   return (
     <SidebarProvider>
-      <ClientOnly>
-        <AppSidebar />
-      </ClientOnly>
+      {isClient && <AppSidebar />}
       <SidebarInset className="flex flex-col">
         <Header />
         <div className="flex flex-1 flex-col items-center justify-end p-4 pt-0">

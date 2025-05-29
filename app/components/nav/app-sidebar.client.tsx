@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MessageSquare, Command } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 import { NavMain } from "~/components/nav/nav-main";
 import { NavUser } from "~/components/nav/nav-user.client";
@@ -13,7 +13,6 @@ import {
 } from "~/components/ui/sidebar";
 import { LockClosedIcon } from "@radix-ui/react-icons";
 import { AuthenticatedUser } from "../../lib/auth/auth-types";
-import { ClientOnly } from "../client-only";
 
 // This is sample data.
 const data = {
