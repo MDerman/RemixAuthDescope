@@ -19,6 +19,7 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
+  ignorePatterns: ["!**/.server", "!**/.client"],
 
   // Base config
   extends: ["eslint:recommended"],
@@ -44,21 +45,16 @@ module.exports = {
           { name: "NavLink", linkAttribute: "to" },
         ],
         "import/resolver": {
-          typescript: {
-            alwaysTryTypes: true,
-          },
+          typescript: {},
         },
       },
     },
 
-    // // Typescript
+    // Typescript
     {
       files: ["**/*.{ts,tsx}"],
       plugins: ["@typescript-eslint", "import"],
       parser: "@typescript-eslint/parser",
-      // parserOptions: {
-      //   project: "./tsconfig.json",
-      // },
       settings: {
         "import/internal-regex": "^~/",
         "import/resolver": {
@@ -79,7 +75,7 @@ module.exports = {
 
     // Node
     {
-      files: [".eslintrc.js"],
+      files: [".eslintrc.cjs"],
       env: {
         node: true,
       },
