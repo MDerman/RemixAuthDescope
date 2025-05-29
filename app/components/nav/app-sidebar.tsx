@@ -12,7 +12,6 @@ import {
   SidebarRail,
 } from "~/components/ui/sidebar";
 import { LockClosedIcon } from "@radix-ui/react-icons";
-import { useUser } from "@descope/react-sdk";
 import { AuthenticatedUser } from "../../lib/auth/auth-types";
 import { ClientOnly } from "../client-only";
 
@@ -43,7 +42,13 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { user } = useUser();
+  const user = {
+    userId: "123",
+    email: "joe@example.com",
+    name: "Example User",
+    picture: "NA",
+  };
+
   if (!user.email || !user.name) {
     return <div>Loading...</div>;
   }
@@ -56,19 +61,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   };
 
   return (
-    <ClientOnly>
-      <Sidebar collapsible="icon" {...props}>
-        <SidebarHeader>
-          <TeamSwitcher teams={data.teams} />
-        </SidebarHeader>
-        <SidebarContent>
-          <NavMain items={data.navMain} />
-        </SidebarContent>
-        <SidebarFooter>
-          <NavUser user={authenticatedUser} />
-        </SidebarFooter>
-        <SidebarRail />
-      </Sidebar>
-    </ClientOnly>
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <TeamSwitcher teams={data.teams} />
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={authenticatedUser} />
+      </SidebarFooter>
+      <SidebarRail />
+    </Sidebar>
   );
 }

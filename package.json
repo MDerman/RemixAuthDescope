@@ -11,8 +11,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@descope/node-sdk": "^1.7.6",
-    "@descope/react-sdk": "^2.14.15",
     "@epic-web/client-hints": "^1.2.2",
     "@radix-ui/react-avatar": "^1.1.9",
     "@radix-ui/react-collapsible": "^1.1.10",

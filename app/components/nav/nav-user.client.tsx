@@ -27,7 +27,6 @@ import {
 import { CaretSortIcon } from "@radix-ui/react-icons"
 import { ThemeToggle } from "~/routes/resources.theme-toggle"
 import { useCallback } from "react"
-import { useDescope } from "@descope/react-sdk"
 import { AuthenticatedUser } from "../../lib/auth/auth-types"
 
 export function NavUser({
@@ -36,10 +35,6 @@ export function NavUser({
   user: AuthenticatedUser
 }) {
   const { isMobile } = useSidebar()
-  const { logout } = useDescope()
-  const handleLogout = useCallback(() => {
-    logout()
-  }, [logout])
 
   return (
     <SidebarMenu>
@@ -91,7 +86,7 @@ export function NavUser({
               </div>
             </div>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout} className="flex items-center gap-2 text-destructive focus:text-destructive">
+            <DropdownMenuItem onClick={() => {}} className="flex items-center gap-2 text-destructive focus:text-destructive">
                 <LogOut className="size-4" />
                 <span>Log out</span>
             </DropdownMenuItem>

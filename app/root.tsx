@@ -27,8 +27,6 @@ import {
 } from "./lib/theme/client-theme-and-hints";
 import clsx from "clsx";
 import { XCircle } from "lucide-react";
-import { ClientOnly } from "./components/client-only";
-import { AuthWrapper } from "./components/auth/auth-wrapper.client";
 
 declare global {
   interface Window {
@@ -36,7 +34,7 @@ declare global {
       PUBLIC_DESCOPE_PROJECT_ID: string;
     };
   }
-};
+}
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return json({
@@ -46,9 +44,9 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
         theme: getTheme(request),
       },
     },
-    //allows you to access these env variables in client using: window.ENV.EXAMPLE_VARIABLE
+    //allows you to access these env variables in client using: window.ENV.ENVIRONMENT_VARIABLE_EXAMPLE
     ENV: {
-      PUBLIC_DESCOPE_PROJECT_ID: process.env.PUBLIC_DESCOPE_PROJECT_ID,
+      ENVIRONMENT_VARIABLE_EXAMPLE: process.env.ENVIRONMENT_VARIABLE_EXAMPLE,
     },
   });
 };
@@ -85,11 +83,7 @@ export default function App() {
             __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
           }}
         />
-        <ClientOnly>
-          <AuthWrapper>
-            <Outlet />
-          </AuthWrapper>
-        </ClientOnly>
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
         <Toaster />
