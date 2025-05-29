@@ -1,5 +1,4 @@
-import { AuthProvider, useSession, useUser } from "@descope/react-sdk";
-import { Descope } from "@descope/react-sdk";
+import { AuthProvider, useSession, useUser, Descope } from "@descope/react-sdk";
 import { Outlet } from "@remix-run/react";
 import { toast } from "~/hooks/use-toast";
 

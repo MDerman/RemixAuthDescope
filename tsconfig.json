@@ -1,5 +1,5 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "app/routes/_index.1tsx", "app/components/auth/auth-wrapper.tsx"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "app/routes/_index.1tsx", "app/components/auth/auth-wrapper.client.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,

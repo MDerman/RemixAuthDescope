@@ -28,7 +28,7 @@ import {
 import clsx from "clsx";
 import { XCircle } from "lucide-react";
 import { ClientOnly } from "./components/client-only";
-import { AuthWrapper } from "./components/auth/auth-wrapper";
+import { AuthWrapper } from "./components/auth/auth-wrapper.client";
 
 declare global {
   interface Window {

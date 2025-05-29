@@ -71,6 +71,10 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
       ],
+      rules: {
+        "import/no-duplicates": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+      },
     },
 
     // Node

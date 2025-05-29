@@ -1,4 +1,4 @@
-import { AppSidebar } from "~/components/nav/app-sidebar";
+import { AppSidebar } from "~/components/nav/app-sidebar.client";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ActionFunctionArgs, defer, json } from "@remix-run/node";
 import { OpenAIClient } from "~/lib/generation/open-ai-client";
