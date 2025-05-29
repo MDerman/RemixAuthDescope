@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MessageSquare, Command } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 import { NavMain } from "~/components/nav/nav-main";
 import { NavUser } from "~/components/nav/nav-user.client";
@@ -14,7 +14,6 @@ import {
 import { LockClosedIcon } from "@radix-ui/react-icons";
 import { useUser } from "@descope/react-sdk";
 import { AuthenticatedUser } from "../../lib/auth/auth-types";
-import { ClientOnly } from "../client-only";
 
 // This is sample data.
 const data = {
@@ -56,7 +55,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   };
 
   return (
-    <ClientOnly>
       <Sidebar collapsible="icon" {...props}>
         <SidebarHeader>
           <TeamSwitcher teams={data.teams} />
@@ -69,6 +67,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarFooter>
         <SidebarRail />
       </Sidebar>
-    </ClientOnly>
   );
 }
