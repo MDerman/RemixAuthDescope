@@ -7,7 +7,7 @@ export type PreviousChatData = {
 }
 
 export function loadPreviousChat(): Promise<PreviousChatData> {
-  const delay = 3000;
+  const delay = 650;
   
   return new Promise(resolve => {
     setTimeout(() => {
